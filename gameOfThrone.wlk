@@ -1,14 +1,16 @@
 object daenerys{
     const property artefactos = #{} 
     var property capacidad = 2 
+    const property historia = []
 
     method encontrar(_artefacto){
+        historia.add(_artefacto)
         if (artefactos.size() < capacidad)
             artefactos.add(_artefacto)
     }
 
     method volverAcasa(){
-        castillo.agregarArtefactos()
+        castillo.agregarArtefactos(self.artefactos())
         artefactos.clear()
     }
 
@@ -31,12 +33,10 @@ object armadura{}
 object castillo {
     const property artefactos = []
     
-    method agregarArtefactos(){
-        artefactos.addAll(daenerys.artefactos())
+    method agregarArtefactos(_artefactos){
+        artefactos.add(_artefactos)
+        //artefactos.addAll(daenerys.artefactos())
     }
 }
 
-object historia {
-
-}
  // quiero aclarar que no me copie, solo use los nombres que estaban en el test jeje

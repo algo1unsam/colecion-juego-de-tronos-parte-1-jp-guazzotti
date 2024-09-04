@@ -2,45 +2,44 @@ import gameOfThrone.*
 
 test "encontrar artefactos" {
 	
-	daenerys.encontrar(espada)
-	daenerys.encontrar(libro)
-	daenerys.encontrar(collar)
+	daenerys.encontrar(espada_dragon)
+	daenerys.encontrar(libro_magia_ancestral)libro_magia_ancestral
+	daenerys.encontrar(collar_fuego)
 
-	assert.equals( #{espada, libro}, daenerys.artefactos() )
+	assert.equals( #{espada_dragon, libro_magia_ancestral}, daenerys.artefactos() )
 	
 }
 
 test "castillo" {
 
-	daenerys.encontrar(espada)
-	daenerys.encontrar(libro)
-	daenerys.volverACasa()
- 	daenerys.encontrar(collar)
- 	daenerys.volverACasa()
+	daenerys.encontrar(espada_dragon)
+	daenerys.encontrar(libro_magia_ancestral)
+	daenerys.volverAcasa()
+ 	daenerys.encontrar(collar_fuego)
+ 	daenerys.volverAcasa()
  	
  	assert.that(daenerys.artefactos().isEmpty())
- 	assert.equals(#{espada,libro,collar}, castillo.artefactos())
+ 	assert.equals(#{espada_dragon,libro_magia_ancestral,collar_fuego}, castillo.artefactos())
  	
 }
 
 test "posesiones" {
 	
-	castillo.agregarArtefactos(#{collar, espada})
-	
+	castillo.agregarArtefactos(#{collar_fuego, espada_dragon})
 	daenerys.encontrar(armadura)
-	assert.equals(#{collar, armadura, espada}, daenerys.posesiones())
+	assert.equals(#{collar_fuego, armadura, espada_dragon}, daenerys.posesiones())
 	assert.that(daenerys.posee(armadura))
-	assert.notThat(daenerys.posee(libro))
+	assert.notThat(daenerys.posee(libro_magia_ancestral))
 	
 }
 
 test "historia" {
-	daenerys.encontrar(espada)
-	daenerys.encontrar(libro)
-	daenerys.encontrar(collar)
-	daenerys.volverACasa()
+	daenerys.encontrar(espada_dragon)
+	daenerys.encontrar(libro_magia_ancestral)
+	daenerys.encontrar(collar_fuego)
+	daenerys.volverAcasa()
 	daenerys.encontrar(armadura)
-	daenerys.encontrar(collar)
+	daenerys.encontrar(collar_fuego)
 
-  assert.equals([espada, libro, collar, armadura, collar], daenerys.historia())	
+  assert.equals([espada_dragon, libro_magia_ancestral, collar_fuego, armadura, collar_fuego], daenerys.historia())	
 }
