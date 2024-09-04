@@ -10,7 +10,7 @@ object daenerys{
     }
 
     method volverAcasa(){
-        castillo.agregarArtefactos(self.artefactos())
+        castillo.agregarArtefactos(artefactos)
         artefactos.clear()
     }
 
@@ -31,11 +31,10 @@ object collar_fuego{}
 object armadura{}
 
 object castillo {
-    const property artefactos = []
+    const property artefactos = #{}
     
     method agregarArtefactos(_artefactos){
-        artefactos.add(_artefactos)
-        //artefactos.addAll(daenerys.artefactos())
+        artefactos.addAll(_artefactos)
     }
 }
 
